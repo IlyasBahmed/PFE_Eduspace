@@ -26,6 +26,7 @@ export default function Page4() {
 
   return (
     <View style={styles.container}>
+      <Image source={require("../assets/logo.png")} />
       <Image source={require("../assets/page4.png")} />
       <Text style={styles.Text} numberOfLines={3}>Learn with a Collaborative Community</Text>
       <Text style={styles.p} numberOfLines={4}>

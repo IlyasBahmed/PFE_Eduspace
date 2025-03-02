@@ -26,6 +26,7 @@ export default function Page5() {
 
   return (
     <View style={styles.container}>
+            <Image source={require("../assets/logo.png")} />
       <Image source={require("../assets/page2.png")} />
       <Text style={styles.Text}>Start Your Learning Adventure Today</Text>
       <Text style={styles.p} numberOfLines={4}>
@@ -34,8 +35,8 @@ export default function Page5() {
         journey now!
       </Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.replace("Page2")}>
-        <Text style={styles.buttonText}>Go to Page 2</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.replace("Login")}>
+        <Text style={styles.buttonText}>LOGIN</Text>
       </TouchableOpacity>
 
       <View style={styles.circlesContainer}>

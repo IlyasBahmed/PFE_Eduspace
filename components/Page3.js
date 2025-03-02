@@ -26,6 +26,7 @@ export default function Page3() {
 
   return (
     <View style={styles.container}>
+      <Image source={require("../assets/logo.png")} />
       <Image source={require("../assets/page3.png")} />
       <Text style={styles.Text}>Explore Our Features</Text>
       <Text style={styles.p} numberOfLines={4}>

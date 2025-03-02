@@ -8,7 +8,7 @@ export default function Acceuil() {
   useEffect(()=>{
     setTimeout(()=>(
       navigation.replace('Page2')
-    ),10000)
+    ), 5000)
   },[])
   return (
 <View style={styles.container}>
