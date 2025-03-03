@@ -6,7 +6,7 @@ export default function Page2() {
   const navigation = useNavigation(); // Utilisation de navigation
   const circles = [0, 1, 2, 3]; // Tableau des cercles
   const [activeCircle, setActiveCircle] = useState(0); // Suivi du cercle actif
-
+  navigation.setOptions({ headerShown: false }); 
   const handleCirclePress = (index) => {
     setActiveCircle(index); // Met à jour l'état du cercle actif
     // Logique de redirection en fonction du cercle cliqué
@@ -31,8 +31,7 @@ export default function Page2() {
       <Image source={require("../assets/page2.png")} />
       <Text style={styles.Text}>Welcome to EduSpace!</Text>
       <Text style={styles.p} numberOfLines={4}>
-        Step into a world of knowledge! Our app gives you access to a wide range
-        of educational videos to help you expand your skills.
+        Step into a world of knowledge! Our app gives you access to a wide range of educational videos to help you expand your skills
       </Text>
 
       {/* Circles for pagination */}
@@ -82,5 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 15, // Rendre le cercle rond
     backgroundColor: "#4CC9FE", // Cercle bleu pour le cercle actif
     marginHorizontal: 5,
+
+    
   },
 });
