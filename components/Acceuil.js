@@ -15,7 +15,7 @@ export default function SplashScreen() {
   return (
     <View style={styles.container}>
       <Image source={require('../assets/icone.png')} style={styles.logo} />
-      <Image source={require('../assets/logo.png')} style={styles.textLogo} />
+      <Image source={require('../assets/logo.png')} style={styles.te}xtLogo />
     </View>
   );
 }
@@ -26,14 +26,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   logo: {
     width: 200,
     height: 200,
-    marginBottom: 20,
+    padding:0,
+    margin:0,
   },
   textLogo: {
     width: 300,
-    height: 100,
+    height: 200,
+   marginTop:0,
+    paddingTop:0,
+    resizeMode: 'contain',
   },
 });

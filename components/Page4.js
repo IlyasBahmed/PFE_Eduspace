@@ -6,7 +6,7 @@ export default function Page4() {
   const navigation = useNavigation();
   const [activeCircle, setActiveCircle] = useState(2); 
   const circles = [0, 1, 2, 3]; 
-
+  navigation.setOptions({ headerShown: false });
   const handleCirclePress = (index) => {
     setActiveCircle(index); 
     switch (index) {
@@ -27,7 +27,7 @@ export default function Page4() {
   return (
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} />
-      <Image source={require("../assets/page4.png")} />
+      <Image source={require("../assets/page4.png")} style={styles.textLogo }/>
       <Text style={styles.Text} numberOfLines={3}>Learn with a Collaborative Community</Text>
       <Text style={styles.p} numberOfLines={4}>
         Join our forums to share your knowledge or learn from others. At
@@ -52,6 +52,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#FFFFFF",
+    paddingTop:60,
+  },
+  textLogo: {
+    width: 350,
+    height: 300,
+   marginTop:0,
+    paddingTop:0,
+    resizeMode: 'contain',
   },
   Text: {
     color: "#4CC9FE",
@@ -64,9 +72,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   circlesContainer: {
-    flexDirection: "row", 
+    flexDirection: "row", // Alignement des cercles horizontalement
     marginTop: 20,
-    gap: 10, 
+    gap: 10, // Espacement entre les cercles
+    position: 'absolute', 
+    top: 580,
+     left: 120,
   },
   circle: {
     width: 20,
