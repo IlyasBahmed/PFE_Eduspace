@@ -8,8 +8,6 @@ export default function Login() {
   return (
       <View style={styles.container}>
         <Image source={require('../assets/logo.png')}/>
-
-
         <View style={styles.container1}>
         <TouchableOpacity style={styles.Button}>
         <Icon name="google" size={24} color="#DB4437"  />
@@ -53,8 +51,7 @@ const styles = StyleSheet.create({
     container1: {
          marginTop:20,
          width: "100%",
-         
-      alignItems: "center",
+         alignItems: "center",
       },
     Text: {
         fontSize: 50,

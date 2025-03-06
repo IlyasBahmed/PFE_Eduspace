@@ -5,11 +5,10 @@ import { useNavigation } from '@react-navigation/native'; // Utilisation de navi
 export default function Page2() {
   const navigation = useNavigation(); // Utilisation de navigation
   const circles = [0, 1, 2, 3]; // Tableau des cercles
-  const [activeCircle, setActiveCircle] = useState(0); // Suivi du cercle actif
+  const [activeCircle, setActiveCircle] = useState(0); 
   navigation.setOptions({ headerShown: false }); 
   const handleCirclePress = (index) => {
-    setActiveCircle(index); // Met à jour l'état du cercle actif
-    // Logique de redirection en fonction du cercle cliqué
+    setActiveCircle(index); 
     switch (index) {
       case 1:
         navigation.replace("Page3");
@@ -65,9 +64,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 25,
   },
   circlesContainer: {
-    flexDirection: "row", // Alignement des cercles horizontalement
+    flexDirection: "row", 
     marginTop: 20,
-    gap: 10, // Espacement entre les cercles
+    gap: 10, 
     position: 'absolute', 
     top: 580,
      left: 120,
