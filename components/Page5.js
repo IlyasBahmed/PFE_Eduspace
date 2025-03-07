@@ -35,7 +35,7 @@ export default function Page5() {
         journey now!
       </Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.replace("Login")}>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
         <Text style={styles.buttonText}>LOGIN</Text>
       </TouchableOpacity>
 
