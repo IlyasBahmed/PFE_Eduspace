@@ -37,6 +37,8 @@ export default function App() {
         <Stack.Screen name="Page4" component={Page4} options={{ title: "" }} />
         <Stack.Screen name="Page5" component={Page5} options={{ title: "" }} />
         <Stack.Screen name="Login" component={Login} options={{ title: "" }} />
+        <Stack.Screen name="Login2" component={Login2} options={{ title: "" }} />
+
       </Stack.Navigator>
     </NavigationContainer>
     // <Login2/>

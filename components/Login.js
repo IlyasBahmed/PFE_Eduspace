@@ -5,6 +5,8 @@ import { Button } from "react-native-web";
 import Icon from "react-native-vector-icons/FontAwesome"; // Import des icônes
 const { width } = Dimensions.get("window"); 
 export default function Login() {
+    const navigation = useNavigation();
+  
   return (
       <View style={styles.container}>
         <Image source={require('../assets/logo.png')}/>
@@ -27,7 +29,9 @@ export default function Login() {
         </TouchableOpacity>
         <Text style={{fontWeight:'bold',fontSize:20}}>OR</Text>
 
-        <TouchableOpacity style={styles.ButtonEmail}>
+        <TouchableOpacity style={styles.ButtonEmail} onPress={()=>{
+            navigation.navigate("Login2")
+        }}>
         <Text style={{color:'white',fontWeight:'bold'}}>Login with Email</Text>
         </TouchableOpacity>
         <Text style={styles.Text2}>You do not have an account?</Text>

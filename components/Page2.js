@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
 
-export default function Page2() {
+export default function Page2(props) {
   const navigation = useNavigation(); // Utilisation de navigation
   const circles = [0, 1, 2, 3]; // Tableau des cercles
   const [activeCircle, setActiveCircle] = useState(0); 
