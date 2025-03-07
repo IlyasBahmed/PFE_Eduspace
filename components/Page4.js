@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; 
-
+import { useFonts, Poppins_400Regular, Poppins_700Bold , Poppins_300Light} from "@expo-google-fonts/poppins";
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 export default function Page4() {
   const navigation = useNavigation();
   const [activeCircle, setActiveCircle] = useState(2); 
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     backgroundColor: "#FFFFFF",
-    paddingTop:60,
+    paddingTop: verticalScale(40),
   },
   textLogo: {
     width: 350,
@@ -65,20 +66,24 @@ const styles = StyleSheet.create({
     color: "#4CC9FE",
     fontSize: 30,
     fontWeight: "bold",
-    textAlign: "center",
+    fontFamily: "PoppinsBold",
   },
   p: {
-    marginVertical: 20,
+    marginVertical: 10,
     marginHorizontal: 25,
+    textAlign: "justify",
+    fontSize:20,
+    fontFamily: "PoppinsLight",
+    width :scale(300),
   },
   circlesContainer: {
-    flexDirection: "row", // Alignement des cercles horizontalement
-    marginTop: 20,
-    gap: 10, // Espacement entre les cercles
-    position: 'absolute', 
-    top: 580,
-     left: 120,
-  },
+       flexDirection: "row",
+       marginTop: verticalScale(20),
+       gap: 10,
+       position: 'absolute', 
+       top: verticalScale(600),
+       left: scale(100),
+     },
   circle: {
     width: 20,
     height: 20,

@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function SplashScreen() {
   const navigation = useNavigation();
-
+ 
   useEffect(() => {
     navigation.setOptions({ headerShown: false }); // Cacher la barre de navigationx
     setTimeout(() => {

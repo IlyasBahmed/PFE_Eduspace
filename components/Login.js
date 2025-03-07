@@ -3,8 +3,10 @@ import { StyleSheet, Text, View, Image, TouchableOpacity ,Dimensions} from "reac
 import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
 import { Button } from "react-native-web";
 import Icon from "react-native-vector-icons/FontAwesome"; // Import des icônes
+
 const { width } = Dimensions.get("window"); 
 export default function Login() {
+  navigation.setOptions({ headerShown: false });
   return (
       <View style={styles.container}>
         <Image source={require('../assets/logo.png')}/>
