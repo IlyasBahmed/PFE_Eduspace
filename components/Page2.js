@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
@@ -12,6 +13,19 @@ export default function Page2() {
   const handleCirclePress = (index) => {
     setActiveCircle(index); // Met à jour l'état du cercle actif
     // Logique de redirection en fonction du cercle cliqué
+=======
+import { useNavigation } from '@react-navigation/native'; 
+import Child from './ReusableComponents/Child';
+
+export default function Page2() {
+  const navigation = useNavigation();
+  const circles = [0, 1, 2, 3]; 
+  const [activeCircle, setActiveCircle] = useState(0);
+  navigation.setOptions({ headerShown: false });
+
+  const handleCirclePress = (index) => {
+    setActiveCircle(index);
+>>>>>>> 010c837 (Nouvelle modifications)
     switch (index) {
       case 1:
         navigation.replace("Page3");
@@ -28,6 +42,7 @@ export default function Page2() {
   };
 
   return (
+<<<<<<< HEAD
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")}  />
       <Image source={require("../assets/page2.png")} />
@@ -95,3 +110,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
 });
+=======
+    <Child
+      activeCircle={activeCircle}
+      onCirclePress={handleCirclePress}
+      logo={require("../assets/logo.png")}
+      image={require("../assets/page2.png")}
+      titre="Welcome to EduSpace!"
+      text="Step into a world of knowledge! Our app gives you access to a wide range of educational videos to help you expand your skills"
+      circles={circles}
+    />
+  );
+}
+>>>>>>> 010c837 (Nouvelle modifications)

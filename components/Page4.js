@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; 
+<<<<<<< HEAD
 import { useFonts, Poppins_400Regular, Poppins_700Bold , Poppins_300Light} from "@expo-google-fonts/poppins";
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+=======
+import Child from './ReusableComponents/Child';
+
+>>>>>>> 010c837 (Nouvelle modifications)
 export default function Page4() {
   const navigation = useNavigation();
   const [activeCircle, setActiveCircle] = useState(2); 
   const circles = [0, 1, 2, 3]; 
   navigation.setOptions({ headerShown: false });
+
   const handleCirclePress = (index) => {
-    setActiveCircle(index); 
+    setActiveCircle(index);
     switch (index) {
       case 0:
         navigation.replace("Page2");
@@ -26,6 +31,7 @@ export default function Page4() {
   };
 
   return (
+<<<<<<< HEAD
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} />
       <Image source={require("../assets/page4.png")} style={styles.textLogo }/>
@@ -100,3 +106,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
 });
+=======
+    <Child
+      activeCircle={activeCircle}
+      onCirclePress={handleCirclePress}
+      logo={require("../assets/logo.png")}
+      image={require("../assets/page4.png")}
+      titre="Learn with a Collaborative Community"
+      text="Join our forums to share your knowledge or learn from others. At EduSpace, learning is a shared, enjoyable experience!"
+      circles={circles}
+    />
+  );
+}
+>>>>>>> 010c837 (Nouvelle modifications)

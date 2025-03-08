@@ -1,11 +1,14 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState, useRef } from "react";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions ,Image} from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import Button from "./ReusableComponents/Button";
+import Input from "./ReusableComponents/Input";
 
 const { width } = Dimensions.get("window");
 
 export default function Login2() {
-  
+  const navigation=useNavigation()
   const [showPassword, setShowPassword] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const emailInputRef = useRef(null);
@@ -20,17 +23,13 @@ export default function Login2() {
       <Text style={styles.Text}>Log in to Your Account</Text>
 
       <View style={styles.container1}>
-        <View style={styles.div}>
-          <Icon name="google" size={24} color="black" />
-          <TextInput
-            ref={emailInputRef} 
-            placeholder="Write your email"
-            style={styles.input}
-          />
+        <View>icon,color,placehorder,onChange
+          <Input icon={"google"} color={"black"} placehorder={"Write your email"}/>
         </View>
 
         <View style={styles.div}>
-          <Icon name="eye" size={24} color="#DB4437" />
+
+          <Icon name="eye" size={24} color="black" />
           <TextInput
             ref={passwordInputRef}
             secureTextEntry={!showPassword}
@@ -42,7 +41,7 @@ export default function Login2() {
             name={showPassword ? "eye" : "eye-slash"}
             size={24}
             color="black"
-            style={{ marginLeft: 30 }}
+            style={styles.eyeIcon}
             onPress={() => setShowPassword(!showPassword)}
           />
         </View>
@@ -54,14 +53,13 @@ export default function Login2() {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.button}>
-          <Text style={{ textAlign: "center", color: "white" }}>LOGIN</Text>
-        </TouchableOpacity>
+       <Button  text="Login"/>
+       
       </View>
       <View style={{flexDirection:'row',gap:10,marginVertical:10}}>
       <Text>Forget Your password?</Text>
       <TouchableOpacity>
-        <Text style={{color :'blue'}}>Click here</Text>
+        <Text style={{color :'#4CC9FE'}} onPress={()=>navigation.navigate("TroublePassw")}>Click here</Text>
         </TouchableOpacity>
       </View>
       <Text>OR CONTINUE WITH</Text>
@@ -77,8 +75,8 @@ export default function Login2() {
       </TouchableOpacity>
       </View>
       <Text>You do not have an account?</Text>
-      <TouchableOpacity>
-        <Text style={{color :'blue'}}>Create an account</Text>
+      <TouchableOpacity onPress={()=>(navigation.navigate("Createaccount"))}>
+        <Text style={{color :'#0077B5'}}>Create an account</Text>
         </TouchableOpacity>
     </View>
   );
@@ -101,14 +99,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   div: {
-    gap: 20,
-    flexDirection: "row",
-    alignItems: "center",
-    borderWidth: 2,
-    borderColor: "black",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
+    flexDirection:'row',
+        alignItems:'center',
+        paddingHorizontal:20,
+        paddingVertical:5,
+        gap:20,
+        borderRadius:20,
+        borderWidth: 1,
+        width: width * 0.8,
   },
  
   div2: {
@@ -126,6 +124,9 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 10,
   },
-
+  eyeIcon: {
+    position: 'absolute',
+    right: 20, 
+  },
 
 });

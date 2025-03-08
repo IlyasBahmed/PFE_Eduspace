@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome"; // Import des icônes
@@ -43,6 +44,32 @@ export default function Login() {
 
         <TouchableOpacity>
           <Text style={{ color: '#4CC9FE',fontFamily:"Poppins_600SemiBold",fontSize:20 }}>Create an account?</Text>
+=======
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Image, TouchableOpacity ,Dimensions} from "react-native";
+import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
+import Button from "./ReusableComponents/Button"; 
+import API from "./ReusableComponents/API";
+const { width } = Dimensions.get("window"); 
+export default function Login() {
+    const navigation = useNavigation();
+  
+  return (
+      <View style={styles.container}>
+        <Image source={require('../assets/logo.png')}/>
+        <View style={styles.container1}>
+        <API icon={"google"} text={"login  with Google"} color={"#DB4437"}/>
+        <API icon={"apple"} text={"login with Apple"}color={"black"}/>
+        <API icon={"linkedin"}text={"login with Linkedin"} color={"#0077B5"}/>
+        <API icon={"qrcode"}text={"login with QR CODE"}color={"black"}/>
+        <Text style={{fontWeight:'bold',fontSize:20}}>OR</Text>
+
+        <Button text="Login with Email" onPress={() =>( navigation.navigate("Login2"))}/>
+        <Text style={styles.Text2}>You do not have an account?</Text>
+
+        <TouchableOpacity onPress={()=>(navigation.navigate("Createaccount"))}>
+        <Text style={{color:'#4CC9FE'}}>Create an account?</Text>
+>>>>>>> 010c837 (Nouvelle modifications)
         </TouchableOpacity>
       </View>
     </View>
@@ -50,6 +77,7 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+<<<<<<< HEAD
   container: {
     flex: 1,
     alignItems: "center",
@@ -114,4 +142,26 @@ const styles = StyleSheet.create({
     fontFamily:"PoppinsLight",
     fontSize:20,
   }
+=======
+    container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent:'center',
+      backgroundColor: "#FFFFFF",
+    },
+    container1: {
+         marginTop:20,
+         width: "100%",
+         alignItems: "center",
+      },
+    Text: {
+        fontSize: 50,
+        fontWeight: "bold",
+        marginTop:10,
+      },
+      Text2: {
+        fontWeight: "bold",
+      },
+
+>>>>>>> 010c837 (Nouvelle modifications)
 });

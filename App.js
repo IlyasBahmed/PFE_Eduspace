@@ -10,7 +10,12 @@ import Page4 from './components/Page4';
 import Page5 from './components/Page5';
 import Login from './components/Login';
 import Login2 from './components/Login2';
+<<<<<<< HEAD
 import Scanner from './components/Scanner';
+=======
+import Createaccount from './components/Createaccount';
+import TroublePassw from './components/TroublePassw';
+>>>>>>> 010c837 (Nouvelle modifications)
 
 const Stack = createStackNavigator();
 
@@ -32,6 +37,7 @@ export default function App() {
           },
         }),
       }}>
+<<<<<<< HEAD
         <Stack.Screen name="Acceuil" component={Acceuil} options={{ title: "" }} />
         <Stack.Screen name="Page2" component={Page2} options={{ title: "" }} />
         <Stack.Screen name="Page3" component={Page3} options={{ title: "" }} />
@@ -40,9 +46,20 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} options={{ title: "" }} />
         <Stack.Screen name="Login2" component={Login2} options={{ title: "" }} />
         <Stack.Screen name="Scanner" component={Scanner} options={{ title: "" }} />
+=======
+        <Stack.Screen name="Acceuil" component={Acceuil} options={{ title:""}} />
+        <Stack.Screen name="Page2" component={Page2} options={{ title:""}} />
+        <Stack.Screen name="Page3" component={Page3} options={{ title:""}} />
+        <Stack.Screen name="Page4" component={Page4} options={{ title:""}} />
+        <Stack.Screen name="Page5" component={Page5} options={{ title:""}} />
+        <Stack.Screen name="Login" component={Login} options={{ title:""}} />
+        <Stack.Screen name="Createaccount" component={Createaccount} options={{title:""}} />
+        <Stack.Screen name="TroublePassw" component={TroublePassw} options={{title:""}} />
+        <Stack.Screen name="Login2" component={Login2} options={{title:""}} />
+>>>>>>> 010c837 (Nouvelle modifications)
 
       </Stack.Navigator>
     </NavigationContainer>
-    // <Login2/>
+    // <TroublePassw/>
   );
 }

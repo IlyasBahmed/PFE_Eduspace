@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; 
+<<<<<<< HEAD
 import { useFonts, Poppins_400Regular, Poppins_700Bold , Poppins_300Light} from "@expo-google-fonts/poppins";
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+=======
+import Child from './ReusableComponents/Child';
+
+>>>>>>> 010c837 (Nouvelle modifications)
 export default function Page3() {
   const navigation = useNavigation();
   const [activeCircle, setActiveCircle] = useState(1); 
   const circles = [0, 1, 2, 3]; 
   navigation.setOptions({ headerShown: false });
+
   const handleCirclePress = (index) => {
-    setActiveCircle(index); 
+    setActiveCircle(index);
     switch (index) {
       case 0:
         navigation.replace("Page2");
@@ -26,28 +31,18 @@ export default function Page3() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image source={require("../assets/logo.png")}/>
-      <Image source={require("../assets/page3.png")} style={styles.textLogo }/>
-      <Text style={styles.Text}>Explore Our Features</Text>
-      <Text style={styles.p} numberOfLines={4}>
-      Access a wide range of educational videos, interact with the community through forums, 
-      and enjoy live streaming with real-time discussions. Content creators can easily manage
-       their videos and streams.
-      </Text>
-
-      <View style={styles.circlesContainer}>
-        {circles.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={[item === activeCircle ? styles.circleColore : styles.circle]} 
-            onPress={() => handleCirclePress(item)} 
-          />
-        ))}
-      </View>
-    </View>
+    <Child
+      activeCircle={activeCircle}
+      onCirclePress={handleCirclePress}
+      logo={require("../assets/logo.png")}
+      image={require("../assets/page3.png")}
+      titre="Explore Our Features"
+      text="Access a wide range of educational videos, interact with the community through forums, and enjoy live streaming with real-time discussions."
+      circles={circles}
+    />
   );
 }
+<<<<<<< HEAD
 
 const styles = StyleSheet.create({
   container: {
@@ -100,3 +95,5 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
 });
+=======
+>>>>>>> 010c837 (Nouvelle modifications)
