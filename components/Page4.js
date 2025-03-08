@@ -29,10 +29,10 @@ export default function Page4() {
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} />
       <Image source={require("../assets/page4.png")} style={styles.textLogo }/>
-      <Text style={styles.Text} numberOfLines={3}>Learn with a Collaborative Community</Text>
-      <Text style={styles.p} numberOfLines={4}>
-        Join our forums to share your knowledge or learn from others. At
-        EduSpace, learning is a shared, enjoyable experience!
+      <Text style={styles.Text} numberOfLines={2}>Learn with Collaboration</Text>
+      <Text style={styles.p}numberOfLines={4} >
+        Join our forums to share your knowledgeor learn from others.
+      At EduSpace,learning is a shared,enjoyable experience!
       </Text>
 
       <View style={styles.circlesContainer}>
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     color: "#4CC9FE",
     fontSize: 30,
     fontWeight: "bold",
+    alignItems:"center",
     fontFamily: "PoppinsBold",
   },
   p: {
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
        gap: 10,
        position: 'absolute', 
        top: verticalScale(600),
-       left: scale(100),
+       left: scale(110),
      },
   circle: {
     width: 20,

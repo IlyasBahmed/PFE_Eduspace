@@ -10,6 +10,7 @@ import Page4 from './components/Page4';
 import Page5 from './components/Page5';
 import Login from './components/Login';
 import Login2 from './components/Login2';
+import Scanner from './components/Scanner';
 
 const Stack = createStackNavigator();
 
@@ -38,6 +39,7 @@ export default function App() {
         <Stack.Screen name="Page5" component={Page5} options={{ title: "" }} />
         <Stack.Screen name="Login" component={Login} options={{ title: "" }} />
         <Stack.Screen name="Login2" component={Login2} options={{ title: "" }} />
+        <Stack.Screen name="Scanner" component={Scanner} options={{ title: "" }} />
 
       </Stack.Navigator>
     </NavigationContainer>

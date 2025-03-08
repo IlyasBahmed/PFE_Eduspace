@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
       gap: 10,
       position: 'absolute', 
       top: verticalScale(600),
-      left: scale(100),
+      left: scale(110),
     },
   circle: {
     width: 20,
