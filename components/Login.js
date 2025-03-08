@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity ,Dimensions} from "react-native";
 import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
-import { Button } from "react-native-web";
+import Button from "./ReusableComponents/Button";
 import Icon from "react-native-vector-icons/FontAwesome"; // Import des icônes
 
 const { width } = Dimensions.get("window"); 
 export default function Login() {
+    const navigation = useNavigation();
+  
   navigation.setOptions({ headerShown: false });
   return (
       <View style={styles.container}>
@@ -30,13 +32,11 @@ export default function Login() {
         <Text style={styles.Text2}>login with QR CODE</Text>
         </TouchableOpacity>
         <Text style={{fontWeight:'bold',fontSize:20}}>OR</Text>
+       <Button text={"Login with Email"} onPress={()=>(navigation.navigate("Login2"))}/>
 
-        <TouchableOpacity style={styles.ButtonEmail}>
-        <Text style={{color:'white',fontWeight:'bold'}}>Login with Email</Text>
-        </TouchableOpacity>
-        <Text style={styles.Text2}>You do not have an account?</Text>
+       <Text style={styles.Text2}>You do not have an account?</Text>
 
-        <TouchableOpacity >
+        <TouchableOpacity onPress={()=>(navigation.navigate("Createaccount"))}>
         <Text style={{color:'#4CC9FE'}}>Create an account?</Text>
         </TouchableOpacity>
         </View>

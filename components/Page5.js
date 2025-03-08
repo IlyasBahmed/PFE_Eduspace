@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; 
+import Button from "./ReusableComponents/Button";
 
 export default function Page5() {
   const navigation = useNavigation();
@@ -26,7 +27,7 @@ export default function Page5() {
 
   return (
     <View style={styles.container}>
-            <Image source={require("../assets/logo.png")} />
+       <Image source={require("../assets/logo.png")} />
       <Image source={require("../assets/page2.png")} style={styles.textLogo }/>
       <Text style={styles.Text}>Start Your Learning Adventure Today</Text>
       <Text style={styles.p} numberOfLines={4}>
@@ -35,10 +36,8 @@ export default function Page5() {
         journey now!
       </Text>
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>
-        <Text style={styles.buttonText}>LOGIN</Text>
-      </TouchableOpacity>
-
+      <Button  text="LOGIN" onPress={() =>( navigation.navigate("Login"))}/>
+     
       <View style={styles.circlesContainer}>
         {circles.map((item, index) => (
           <TouchableOpacity

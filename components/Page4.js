@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import Child from './ReusableComponents/Child';
 import { useNavigation } from '@react-navigation/native'; 
 import { useFonts, Poppins_400Regular, Poppins_700Bold , Poppins_300Light} from "@expo-google-fonts/poppins";
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
@@ -26,76 +27,14 @@ export default function Page4() {
   };
 
   return (
-    <View style={styles.container}>
-      <Image source={require("../assets/logo.png")} />
-      <Image source={require("../assets/page4.png")} style={styles.textLogo }/>
-      <Text style={styles.Text} numberOfLines={3}>Learn with a Collaborative Community</Text>
-      <Text style={styles.p} numberOfLines={4}>
-        Join our forums to share your knowledge or learn from others. At
-        EduSpace, learning is a shared, enjoyable experience!
-      </Text>
-
-      <View style={styles.circlesContainer}>
-        {circles.map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            style={[item === activeCircle ? styles.circleColore : styles.circle]} 
-            onPress={() => handleCirclePress(item)} 
-          />
-        ))}
-      </View>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "#FFFFFF",
-    paddingTop: verticalScale(40),
-  },
-  textLogo: {
-    width: 350,
-    height: 300,
-   marginTop:0,
-    paddingTop:0,
-    resizeMode: 'contain',
-  },
-  Text: {
-    color: "#4CC9FE",
-    fontSize: 30,
-    fontWeight: "bold",
-    fontFamily: "PoppinsBold",
-  },
-  p: {
-    marginVertical: 10,
-    marginHorizontal: 25,
-    textAlign: "justify",
-    fontSize:20,
-    fontFamily: "PoppinsLight",
-    width :scale(300),
-  },
-  circlesContainer: {
-       flexDirection: "row",
-       marginTop: verticalScale(20),
-       gap: 10,
-       position: 'absolute', 
-       top: verticalScale(600),
-       left: scale(100),
-     },
-  circle: {
-    width: 20,
-    height: 20,
-    borderRadius: 15,
-    backgroundColor: "#ccc",
-    marginHorizontal: 5,
-  },
-  circleColore: {
-    width: 20,
-    height: 20,
-    borderRadius: 15,
-    backgroundColor: "#4CC9FE",
-    marginHorizontal: 5,
-  },
-});
+    <Child
+       activeCircle={activeCircle}
+       onCirclePress={handleCirclePress}
+       logo={require("../assets/logo.png")}
+       image={require("../assets/page4.png")}
+       titre="Learn with a Collaborative Community"
+       text="Join our forums to share your knowledge or learn from others. At EduSpace, learning is a shared, enjoyable experience!"
+       circles={circles}
+     />
+   );
+ }
