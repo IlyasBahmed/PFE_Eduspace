@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
@@ -9,8 +9,10 @@ export default function Page2() {
   
   const circles = [0, 1, 2, 3];
   const [activeCircle, setActiveCircle] = useState(0);
-  navigation.setOptions({ headerShown: false }); 
-  const handleCirclePress = (index) => {
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, []); 
+    const handleCirclePress = (index) => {
     setActiveCircle(index); 
     switch (index) {
       case 1:

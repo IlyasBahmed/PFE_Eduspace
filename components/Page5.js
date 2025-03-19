@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native'; 
 import Button from "./ReusableComponents/Button";
@@ -7,8 +7,9 @@ export default function Page5() {
   const navigation = useNavigation();
   const [activeCircle, setActiveCircle] = useState(3); 
   const circles = [0, 1, 2, 3]; 
-  navigation.setOptions({ headerShown: false });
-  const handleCirclePress = (index) => {
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, []);   const handleCirclePress = (index) => {
     setActiveCircle(index); 
     switch (index) {
       case 0:

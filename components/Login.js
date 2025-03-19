@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity ,Dimensions} from "react-native";
 import { useNavigation } from '@react-navigation/native'; // Utilisation de navigation
 import Button from "./ReusableComponents/Button";
@@ -8,8 +8,9 @@ const { width } = Dimensions.get("window");
 export default function Login() {
     const navigation = useNavigation();
   
-  navigation.setOptions({ headerShown: false });
-  return (
+  useEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);   return (
       <View style={styles.container}>
         <Image source={require('../assets/logo.png')}/>
 

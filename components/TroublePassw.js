@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {StyleSheet,Text,View,Image,TouchableOpacity,Dimensions,TextInput} from "react-native";
-import { useNavigation } from "@react-navigation/native"; // Utilisation de navigation
+import { useNavigation } from "@react-navigation/native"; 
 import Button from "./ReusableComponents/Button"; 
 import Input from "./ReusableComponents/Input";
-
+import axios from "axios";
 const { width } = Dimensions.get("window");
 
 export default function TroublePassw() {
-    const [input,setInput]=useState("");
+    const [email,setEmail]=useState("");
     const [error,setError]=useState("");
 
     const navigation = useNavigation();
-     
-    const handle=()=>{
-        if(input.trim()===""){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const handle= async()=>{
+        if(email.trim()===""){
            setError("Veuillez entrer l'email")
+        }else if(!emailRegex.test(email)){
+          setError("Veuillez entrer la format d'email")
         }else{
-            navigation.navigate("Login2")
+          try {
+            const response = await axios.post('http://localhost:6005/troublepassw', {
+                email: email,
+            });
+
+            if (response.status===200) {
+                navigation.navigate("EditPassword",{email:email})
+            } else {
+                setError("Cete email n'existe plus dans notre base de donnee");
+            }
+        } catch (err) {
+            setError("Erreur lors de la connexion au serveur");
+        }
         }
     }
   return (
@@ -26,7 +41,7 @@ export default function TroublePassw() {
       <Text style={styles.title}>Trouble logging in ?</Text>
       <Text style={styles.text}> Please enter your email address to verify your account, and you will
       receive a link to reset your password in your Gmail inbox.</Text>
-       <Input icon={"envelope"} color="black" placehorder={"enter your login"} onChange={(e)=>(setInput(e))}/>
+       <Input icon={"envelope"} color="black" placehorder={"enter your login"} onChange={(e)=>(setEmail(e))}/>
        <Text style={{color:'red'}}>{error}</Text>
        <Button text={"Create Account"} onPress={handle}/>
 

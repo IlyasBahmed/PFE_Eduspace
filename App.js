@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Login2 from './components/Login2';
 import Createaccount from './components/Createaccount';
 import TroublePassw from './components/TroublePassw';
+import EditPassword from './components/EditPassword';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +27,7 @@ export default function App() {
               {
                 translateX: current.progress.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [layouts.screen.width, 0], // Effet glissement horizontal
+                  outputRange: [layouts.screen.width, 0], 
                 }),
               },
             ],
@@ -42,9 +43,8 @@ export default function App() {
         <Stack.Screen name="Createaccount" component={Createaccount} options={{ title: "" }} />
         <Stack.Screen name="Login2" component={Login2} options={{ title: "" }} />
         <Stack.Screen name="TroublePassw" component={TroublePassw} options={{ title: "" }} />
-
+        <Stack.Screen name="EditPassword" component={EditPassword} options={{ title: "" }} />
       </Stack.Navigator>
     </NavigationContainer>
-    // <Login2/>
   );
 }
