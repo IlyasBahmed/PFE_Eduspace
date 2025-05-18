@@ -1,50 +1,60 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import "./global.css"
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Acceuil from './components/Acceuil';
-import Page2 from './components/Page2';
-import Page3 from './components/Page3';
-import Page4 from './components/Page4';
-import Page5 from './components/Page5';
-import Login from './components/Login';
-import Login2 from './components/Login2';
-import Createaccount from './components/Createaccount';
-import TroublePassw from './components/TroublePassw';
-import EditPassword from './components/EditPassword';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { enableScreens } from 'react-native-screens';
+import Page from './components/LIVE/Page';
+import LiveScreen from './components/LIVE/LiveScreen';
 
-const Stack = createStackNavigator();
+// Enable screens before creating the navigator
+enableScreens();
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Acceuil" screenOptions={{
-        animationEnabled: true,
-        cardStyleInterpolator: ({ current, layouts }) => ({
-          cardStyle: {
-            transform: [
-              {
-                translateX: current.progress.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [layouts.screen.width, 0], 
-                }),
-              },
-            ],
-          },
-        }),
-      }}>
-        <Stack.Screen name="Acceuil" component={Acceuil} options={{ title: "" }} />
-        <Stack.Screen name="Page2" component={Page2} options={{ title: "" }} />
-        <Stack.Screen name="Page3" component={Page3} options={{ title: "" }} />
-        <Stack.Screen name="Page4" component={Page4} options={{ title: "" }} />
-        <Stack.Screen name="Page5" component={Page5} options={{ title: "" }} />
-        <Stack.Screen name="Login" component={Login} options={{ title: "" }} />
-        <Stack.Screen name="Createaccount" component={Createaccount} options={{ title: "" }} />
-        <Stack.Screen name="Login2" component={Login2} options={{ title: "" }} />
-        <Stack.Screen name="TroublePassw" component={TroublePassw} options={{ title: "" }} />
-        <Stack.Screen name="EditPassword" component={EditPassword} options={{ title: "" }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Home"
+              screenOptions={{
+                headerShown: false,
+                contentStyle: { backgroundColor: 'white' },
+                animation: 'none'
+              }}
+            >
+              <Stack.Screen 
+                name="Home" 
+                component={Page}
+                options={{
+                  gestureEnabled: false
+                }}
+              />
+              <Stack.Screen 
+                name="LiveScreen" 
+                component={LiveScreen}
+                options={{
+                  gestureEnabled: false,
+                  animation: 'none'
+                }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </View>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});   

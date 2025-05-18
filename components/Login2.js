@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import Button from "./ReusableComponents/Button";
 import Input from "./ReusableComponents/Input";
 import axios from "axios";
-
+import AsyncStorage from "@react-native-async-storage/async-storage"; 
 const { width } = Dimensions.get("window");
 
 export default function Login2() {
@@ -32,6 +32,8 @@ export default function Login2() {
         });
 
         if (response.status === 200) {
+          const token = response.data.token;
+          await AsyncStorage.setItem("userToken", token);
           navigation.replace("Login");
         } else {
           setError("les identifiants sont incorrects");
@@ -117,7 +119,7 @@ export default function Login2() {
           <Icon name="linkedin" size={50} color="#0077B5" />
         </TouchableOpacity>
       </View>
-      <Text>You do not have an account?</Text>
+      <Text>You do not have an account ?</Text>
       <TouchableOpacity onPress={() => navigation.navigate("Createaccount")}>
         <Text style={{ color: "#0077B5" }}>Create an account</Text>
       </TouchableOpacity>
